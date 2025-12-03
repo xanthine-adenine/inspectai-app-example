@@ -12,7 +12,6 @@ class Settings(BaseSettings):
 
     redis_host: str = "localhost"
     redis_port: int = 6379
+    data_volume_path: str = "/usr/local/app/data"
 
-
-# Singleton instance
 settings = Settings()
