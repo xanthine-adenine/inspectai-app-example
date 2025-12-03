@@ -8,8 +8,6 @@ COPY pyproject.toml uv.lock .
 
 RUN uv sync --frozen --no-dev
 
-RUN uv sync --frozen --no-dev
-
 COPY src/api ./api
 
 USER app

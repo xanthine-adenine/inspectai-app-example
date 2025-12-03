@@ -13,4 +13,4 @@ COPY src/ui ./ui
 USER app
 
 # Run streamlit server
-CMD ["uv", "run", "streamlit", "run", "ui/app.py", "--server.address", "0.0.0.0", "--server.port", "8501", "--server.runOnSave", "true", "--server.fileWatcherType", "poll"]
+CMD ["uv", "run", "streamlit", "run", "ui/app.py", "--server.address", "0.0.0.0", "--server.port", "8501"]

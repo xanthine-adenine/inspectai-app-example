@@ -8,7 +8,9 @@ services:
     networks:
       - inspectai-app-network
     volumes:
+      - "./src/api/:/usr/local/app/api/"
       - "./data:/usr/local/app/data"
+    command: "uv run uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload"
   ui:
     build:
       context: .
@@ -17,6 +19,9 @@ services:
       - "8501:8501"
     networks:
       - inspectai-app-network
+    volumes:
+      - "./src/ui/:/usr/local/app/ui/"
+    command: "uv run streamlit run ui/app.py --server.address 0.0.0.0 --server.port 8501 --server.runOnSave true"
 networks:
   inspectai-app-network:
     driver: bridge
