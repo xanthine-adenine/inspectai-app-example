@@ -10,4 +10,5 @@ dependencies = [
     "inspect-ai>=0.3.151",
     "ruff>=0.14.7",
     "streamlit>=1.40.0",
+    "uvicorn>=0.30.0",
 ]
