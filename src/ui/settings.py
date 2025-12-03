@@ -10,8 +10,6 @@ class Settings(BaseSettings):
         extra="ignore",
     )
 
-    api_url: str = "http://localhost:8000"
+    api_url: str = "http://api:8000"
 
-
-# Singleton instance
 settings = Settings()
