@@ -7,6 +7,8 @@ services:
       - "8000:8000"
     networks:
       - inspectai-app-network
+    volumes:
+      - "./data:/usr/local/app/data"
   ui:
     build:
       context: .
@@ -17,8 +19,6 @@ services:
       - inspectai-app-network
     volumes:
       - "./src/ui/:/usr/local/app/ui/"
-    environment:
-      - API_URL=http://api:8000
 networks:
   inspectai-app-network:
     driver: bridge
