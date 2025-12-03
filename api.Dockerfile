@@ -1,14 +1,17 @@
-FROM ghcr.io/astral-sh/uv:python3.13-alpine
+FROM ghcr.io/astral-sh/uv:python3.13-bookworm-slim
 
 WORKDIR /usr/local/app
 
-COPY pyproject.toml .
+RUN adduser --disabled-password app && chown -R app:app /usr/local/app
+
+COPY pyproject.toml uv.lock .
+
+RUN uv sync --frozen --no-dev
 
 RUN uv sync --frozen --no-dev
 
 COPY src/api ./api
 
-RUN useradd app
 USER app
 
 # Run uvicorn server

@@ -1,4 +1,4 @@
-.PHONY: help lint lint-fix build-api build-ui build-all docker-compose-up docker-compose-down clean
+.PHONY: help lint lint-fix build-api build-ui build-all start stop clean
 
 help:
 	@echo "Available targets:"
@@ -7,8 +7,8 @@ help:
 	@echo "  build-api       - Build API Docker image"
 	@echo "  build-ui        - Build UI Docker image"
 	@echo "  build-all       - Build both API and UI Docker images"
-	@echo "  docker-compose-up    - Start services with docker-compose"
-	@echo "  docker-compose-down  - Stop services with docker-compose"
+	@echo "  start           - Start services with docker-compose"
+	@echo "  stop            - Stop services with docker-compose"
 	@echo "  clean           - Remove Docker images"
 
 lint:
@@ -25,11 +25,11 @@ build-ui:
 
 build-all: build-api build-ui
 
-docker-compose-up:
-	docker-compose up -d
+start:
+	docker compose up -d
 
-docker-compose-down:
-	docker-compose down
+stop:
+	docker compose down
 
 clean:
 	docker rmi -f inspectai-app-api inspectai-app-ui || true
